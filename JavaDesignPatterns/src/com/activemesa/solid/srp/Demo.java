@@ -15,6 +15,26 @@ public class Demo {
     }
 }
 
+class Persistence {
+    private final Journal journal;
+
+    public Persistence(Journal journal) {
+        this.journal = journal;
+    }
+
+    public void save(String filename) throws FileNotFoundException {
+        try (PrintStream out = new PrintStream(filename)) {
+            out.println(journal.toString());
+        }
+    }
+
+    public void load(String filename) {
+    }
+
+    public void load(URL url) {
+    }
+}
+
 class Journal {
     private final List<String> entries = new ArrayList<>();
     private static int count = 0;
@@ -34,12 +54,4 @@ class Journal {
                 '}';
     }
 
-    public void save(String filename) throws FileNotFoundException {
-        try (PrintStream out = new PrintStream(filename)) {
-            out.println(toString());
-        }
-    }
-
-    public void load(String filename) {}
-    public void load(URL url) {}
 }
