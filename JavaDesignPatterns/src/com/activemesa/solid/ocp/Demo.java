@@ -17,6 +17,10 @@ public class Demo {
 
         BetterProductsFilter betterProductsFilter = new BetterProductsFilter();
         betterProductsFilter.filter(products, new ColorSpecification(Color.GREEN)).forEach(product -> System.out.println(product));
+
+        SizeSpecification large = new SizeSpecification(Size.LARGE);
+        ColorSpecification blue = new ColorSpecification(Color.BLUE);
+        betterProductsFilter.filter(products, new AndSpecification<>(large, blue)).forEach(product -> System.out.println(product));
     }
 }
 
