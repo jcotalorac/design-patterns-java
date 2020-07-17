@@ -4,6 +4,9 @@ class Rectangle{
     protected int width;
     protected int height;
 
+    public Rectangle() {
+    }
+
     public Rectangle(int width, int height) {
         this.width = width;
         this.height = height;
@@ -35,6 +38,15 @@ class Rectangle{
                 "width=" + width +
                 ", height=" + height +
                 '}';
+    }
+}
+
+class Square extends Rectangle{
+    public Square() {
+    }
+
+    public Square(int size) {
+        width = height = size;
     }
 }
 
