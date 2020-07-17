@@ -12,9 +12,11 @@ public class Demo {
 
         List<Product> products = Stream.of(apple, tree, house).collect(Collectors.toList());
 
+        System.out.println("Old version");
         ProductFilter pf = new ProductFilter();
         pf.filterByColor(products, Color.GREEN).forEach(product -> System.out.println(product));
 
+        System.out.println("Enhanced version");
         BetterProductsFilter betterProductsFilter = new BetterProductsFilter();
         betterProductsFilter.filter(products, new ColorSpecification(Color.GREEN)).forEach(product -> System.out.println(product));
 
