@@ -24,3 +24,5 @@ class Product {
         this.size = size;
     }
 }
+
+class ProductFilter {}
