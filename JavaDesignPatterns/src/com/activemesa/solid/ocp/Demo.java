@@ -65,6 +65,19 @@ class ColorSpecification implements Specification<Product> {
     }
 }
 
+class SizeSpecification implements Specification<Product> {
+    private Size size;
+
+    public SizeSpecification(Size size) {
+        this.size = size;
+    }
+
+    @Override
+    public boolean isSatisfied(Product item) {
+        return item.size == size;
+    }
+}
+
 class ProductFilter {
     public Stream<Product> filterByColor(List<Product> products, Color color) {
         return products.stream().filter(p -> p.color == color);
