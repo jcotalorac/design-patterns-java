@@ -52,6 +52,10 @@ interface Specification<T> {
     boolean isSatisfied(T item);
 }
 
+interface Filter<T> {
+    Stream<T> filter(List<T> items, Specification<T> specification);
+}
+
 class ColorSpecification implements Specification<Product> {
     private Color color;
 
