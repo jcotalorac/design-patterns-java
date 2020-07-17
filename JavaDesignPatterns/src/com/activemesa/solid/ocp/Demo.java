@@ -1,9 +1,17 @@
 package com.activemesa.solid.ocp;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Demo {
+    public static void main(String[] args) {
+        Product apple = new Product("Apple", Color.GREEN, Size.SMALL);
+        Product tree = new Product("Tree", Color.GREEN, Size.LARGE);
+        Product house = new Product("House", Color.BLUE, Size.LARGE);
+
+        List<Product> products = Stream.of(apple, tree, house).collect(Collectors.toList());
+    }
 }
 
 enum Color {
