@@ -11,4 +11,8 @@ class Journal {
     public void addEntry(String text) {
         entries.add("" + (count++) + ": " + text);
     }
+
+    public void removeEntry(int index) {
+        entries.remove(index);
+    }
 }
