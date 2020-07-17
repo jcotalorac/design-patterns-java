@@ -25,6 +25,10 @@ class Rectangle{
         this.height = height;
     }
 
+    public int getArea() {
+        return width * height;
+    }
+
     @Override
     public String toString() {
         return "Rectangle{" +
