@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,5 +29,11 @@ class Journal {
         return "Journal{" +
                 "entries=" + entries +
                 '}';
+    }
+
+    public void save(String filename) throws FileNotFoundException {
+        try (PrintStream out = new PrintStream(filename)) {
+            out.println(toString());
+        }
     }
 }
