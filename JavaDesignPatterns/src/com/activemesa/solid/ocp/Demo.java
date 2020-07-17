@@ -84,14 +84,14 @@ class SizeSpecification implements Specification<Product> {
 
 class ProductFilter {
     public Stream<Product> filterByColor(List<Product> products, Color color) {
-        return products.stream().filter(p -> p.color == color);
+        return products.stream().filter(product -> product.color == color);
     }
 
     public Stream<Product> filterBySize(List<Product> products, Size size) {
-        return products.stream().filter(p -> p.size == size);
+        return products.stream().filter(product -> product.size == size);
     }
 
     public Stream<Product> filterBySizeAndColor(List<Product> products, Color color, Size size) {
-        return products.stream().filter(p -> p.color == color && p.size == size);
+        return products.stream().filter(product -> product.color == color && product.size == size);
     }
 }
