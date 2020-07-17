@@ -11,6 +11,9 @@ public class Demo {
         Product house = new Product("House", Color.BLUE, Size.LARGE);
 
         List<Product> products = Stream.of(apple, tree, house).collect(Collectors.toList());
+
+        ProductFilter pf = new ProductFilter();
+        pf.filterByColor(products, Color.GREEN).forEach(product -> System.out.println(product));
     }
 }
 
