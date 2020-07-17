@@ -14,6 +14,9 @@ public class Demo {
 
         ProductFilter pf = new ProductFilter();
         pf.filterByColor(products, Color.GREEN).forEach(product -> System.out.println(product));
+
+        BetterProductsFilter betterProductsFilter = new BetterProductsFilter();
+        betterProductsFilter.filter(products, new ColorSpecification(Color.GREEN)).forEach(product -> System.out.println(product));
     }
 }
 
