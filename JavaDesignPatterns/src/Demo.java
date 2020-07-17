@@ -15,4 +15,11 @@ class Journal {
     public void removeEntry(int index) {
         entries.remove(index);
     }
+
+    @Override
+    public String toString() {
+        return "Journal{" +
+                "entries=" + entries +
+                '}';
+    }
 }
