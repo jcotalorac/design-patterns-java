@@ -52,6 +52,19 @@ interface Specification<T> {
     boolean isSatisfied(T item);
 }
 
+class ColorSpecification implements Specification<Product> {
+    private Color color;
+
+    public ColorSpecification(Color color) {
+        this.color = color;
+    }
+
+    @Override
+    public boolean isSatisfied(Product item) {
+        return item.color == color;
+    }
+}
+
 class ProductFilter {
     public Stream<Product> filterByColor(List<Product> products, Color color) {
         return products.stream().filter(p -> p.color == color);
