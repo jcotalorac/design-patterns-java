@@ -1,5 +1,8 @@
 package com.activemesa.solid.ocp;
 
+import java.util.List;
+import java.util.stream.Stream;
+
 public class Demo {
 }
 
@@ -25,4 +28,8 @@ class Product {
     }
 }
 
-class ProductFilter {}
+class ProductFilter {
+    public Stream<Product> filterByColor(List<Product> products, Color color) {
+        return products.stream().filter(p -> p.color == color);
+    }
+}
