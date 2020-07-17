@@ -82,6 +82,14 @@ class SizeSpecification implements Specification<Product> {
     }
 }
 
+class BetterProductsFilter implements Filter<Product> {
+
+    @Override
+    public Stream<Product> filter(List<Product> items, Specification<Product> specification) {
+        return items.stream().filter(product -> specification.isSatisfied(product));
+    }
+}
+
 class ProductFilter {
     public Stream<Product> filterByColor(List<Product> products, Color color) {
         return products.stream().filter(product -> product.color == color);
