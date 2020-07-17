@@ -48,6 +48,10 @@ class Product {
     }
 }
 
+interface Specification<T> {
+    boolean isSatisfied(T item);
+}
+
 class ProductFilter {
     public Stream<Product> filterByColor(List<Product> products, Color color) {
         return products.stream().filter(p -> p.color == color);
