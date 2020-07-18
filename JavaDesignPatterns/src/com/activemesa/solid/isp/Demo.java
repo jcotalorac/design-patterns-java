@@ -4,8 +4,8 @@ class Document {}
 
 interface Machine {
     void print(Document document);
-    void fax(Document document);
-    void scan(Document document);
+    void fax(Document document) throws Exception;
+    void scan(Document document) throws Exception;
 }
 
 class MultifunctionPrinter implements Machine {
@@ -34,13 +34,13 @@ class OldFashionedPrinter implements Machine {
     }
 
     @Override
-    public void fax(Document document) {
-        //empty
+    public void fax(Document document) throws Exception {
+        throw new Exception();
     }
 
     @Override
-    public void scan(Document document) {
-        //empty
+    public void scan(Document document) throws Exception {
+        throw new Exception();
     }
 }
 
