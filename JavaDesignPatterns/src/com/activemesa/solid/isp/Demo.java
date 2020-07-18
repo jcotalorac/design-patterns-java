@@ -71,5 +71,7 @@ class Photocopier implements Printer, Scanner {
     }
 }
 
+interface MultiFunctionDevice extends Printer, Scanner {}
+
 public class Demo {
 }
