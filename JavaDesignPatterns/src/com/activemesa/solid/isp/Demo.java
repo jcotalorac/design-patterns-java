@@ -73,5 +73,17 @@ class Photocopier implements Printer, Scanner {
 
 interface MultiFunctionDevice extends Printer, Scanner {}
 
+class MultiFunctionMachine implements MultiFunctionDevice {
+    @Override
+    public void print(Document document) {
+
+    }
+
+    @Override
+    public void scan(Document document) {
+
+    }
+}
+
 public class Demo {
 }
