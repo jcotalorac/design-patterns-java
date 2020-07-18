@@ -52,5 +52,12 @@ interface Scanner {
     void scan(Document document);
 }
 
+class JustAPrinter implements Printer {
+    @Override
+    public void print(Document document) {
+
+    }
+}
+
 public class Demo {
 }
