@@ -35,12 +35,12 @@ class OldFashionedPrinter implements Machine {
 
     @Override
     public void fax(Document document) {
-
+        //empty
     }
 
     @Override
     public void scan(Document document) {
-
+        //empty
     }
 }
 
