@@ -44,5 +44,13 @@ class OldFashionedPrinter implements Machine {
     }
 }
 
+interface Printer {
+    void print(Document document);
+}
+
+interface Scanner {
+    void scan(Document document);
+}
+
 public class Demo {
 }
