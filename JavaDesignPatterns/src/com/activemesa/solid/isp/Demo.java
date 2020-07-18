@@ -26,5 +26,23 @@ class MultifunctionPrinter implements Machine {
     }
 }
 
+class OldFashionedPrinter implements Machine {
+
+    @Override
+    public void print(Document document) {
+
+    }
+
+    @Override
+    public void fax(Document document) {
+
+    }
+
+    @Override
+    public void scan(Document document) {
+
+    }
+}
+
 public class Demo {
 }
