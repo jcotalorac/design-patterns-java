@@ -39,7 +39,7 @@ class Relationships { //low-level
     }
 }
 
-class Research {
+class Research { //hign-level
     public Research(Relationships relationships) {
         relationships.getRelations().stream().filter(relationship -> relationship.getValue0().name.equals("John")
                 && relationship.getValue1() == Relationship.PARENT).forEach(JohnChildren -> System.out.println("John children: " + JohnChildren.getValue2()));
