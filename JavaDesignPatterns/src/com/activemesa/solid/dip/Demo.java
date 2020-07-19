@@ -26,6 +26,10 @@ class Person {
     }
 }
 
+interface RelationshipBrowser {
+    List<Person> findAllChildrenOf(String name);
+}
+
 class Relationships { //low-level
     private List<Triplet<Person, Relationship, Person>> relations = new ArrayList<>();
 
