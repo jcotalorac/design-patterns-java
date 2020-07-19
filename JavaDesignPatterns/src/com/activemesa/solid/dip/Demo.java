@@ -4,6 +4,7 @@ import org.javatuples.Triplet;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 enum Relationship {
     PARENT,
@@ -30,7 +31,7 @@ interface RelationshipBrowser {
     List<Person> findAllChildrenOf(String name);
 }
 
-class Relationships { //low-level
+class Relationships implements RelationshipBrowser { //low-level
     private List<Triplet<Person, Relationship, Person>> relations = new ArrayList<>();
 
     public List<Triplet<Person, Relationship, Person>> getRelations() {
@@ -41,12 +42,22 @@ class Relationships { //low-level
         relations.add(new Triplet<>(parent, Relationship.PARENT, child));
         relations.add(new Triplet<>(child, Relationship.CHILD, parent));
     }
+
+    @Override
+    public List<Person> findAllChildrenOf(String name) {
+        return relations.stream().filter(relationship -> relationship.getValue0().name.equals(name)
+            && relationship.getValue1() == Relationship.PARENT).map(Triplet::getValue2).collect(Collectors.toList());
+    }
 }
 
-class Research { //hign-level
-    public Research(Relationships relationships) {
+class Research { //high-level
+    /*public Research(Relationships relationships) {
         relationships.getRelations().stream().filter(relationship -> relationship.getValue0().name.equals("John")
                 && relationship.getValue1() == Relationship.PARENT).forEach(JohnChildren -> System.out.println("John children: " + JohnChildren.getValue2()));
+    }*/
+
+    public Research(RelationshipBrowser browser) {
+        browser.findAllChildrenOf("John").stream().forEach(children -> System.out.println(children));
     }
 }
 
