@@ -26,7 +26,7 @@ class Person {
     }
 }
 
-class Relationships {
+class Relationships { //low-level
     private List<Triplet<Person, Relationship, Person>> relations = new ArrayList<>();
 
     public List<Triplet<Person, Relationship, Person>> getRelations() {
