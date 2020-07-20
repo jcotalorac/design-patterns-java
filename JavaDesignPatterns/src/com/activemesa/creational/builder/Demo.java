@@ -43,6 +43,16 @@ class HtmlElement {
     }
 }
 
+class HtmlBuilder {
+    private String rootName;
+    private HtmlElement root = new HtmlElement();
+
+    public HtmlBuilder(String rootName) {
+        this.rootName = rootName;
+        root.name = rootName;
+    }
+}
+
 public class Demo {
     public static void main(String[] args) {
         String hello = "hello";
