@@ -51,6 +51,21 @@ class HtmlBuilder {
         this.rootName = rootName;
         root.name = rootName;
     }
+
+    public void addChild(String childName, String childText) {
+        HtmlElement e = new HtmlElement(childName, childText);
+        root.elements.add(e);
+    }
+
+    public void clear() {
+        root = new HtmlElement();
+        root.name = rootName;
+    }
+
+    @Override
+    public String toString() {
+        return root.toString();
+    }
 }
 
 public class Demo {
