@@ -88,6 +88,9 @@ public class Demo {
         builder.addChild("li", "hello")
                 .addChild("li", "world");
         System.out.println(builder);
+
+        PersonBuilder pb = new PersonBuilder();
+        Person jc = pb.withName("JC").build();
     }
 }
 
