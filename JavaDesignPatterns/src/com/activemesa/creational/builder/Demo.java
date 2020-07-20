@@ -82,5 +82,10 @@ public class Demo {
         }
         sb.append("</ul>");
         System.out.println(sb);
+
+        HtmlBuilder builder = new HtmlBuilder("ul");
+        builder.addChild("li", "hello");
+        builder.addChild("li", "world");
+        System.out.println(builder);
     }
 }
