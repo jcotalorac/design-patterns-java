@@ -21,7 +21,23 @@ class Point {
     }
 }
 
+interface HotDrink {
+    void consume();
+}
 
+class Tea implements HotDrink {
+    @Override
+    public void consume() {
+        System.out.println("This tea is delicious");
+    }
+}
+
+class Coffee implements HotDrink {
+    @Override
+    public void consume() {
+        System.out.println("This coffee is delicious");
+    }
+}
 
 public class Demo {
     public static void main(String[] args) {
