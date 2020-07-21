@@ -63,7 +63,7 @@ class PersonJobBuilder extends PersonBuilder {
         this.person = person;
     }
 
-    public PersonJobBuilder company(String company) {
+    public PersonJobBuilder at(String company) {
         this.person.companyName = company;
         return this;
     }
@@ -86,6 +86,12 @@ public class Demo {
                 .lives()
                     .at("Adress")
                     .in("London")
-                    .withPostCode("Postcode").build();
+                    .withPostCode("Postcode")
+                .works()
+                    .asA("Fabrik")
+                    .at("Engineer")
+                    .earning(123000)
+                .build();
+        System.out.println(person);
     }
 }
