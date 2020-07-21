@@ -7,6 +7,9 @@ class Point {
         this.x = x;
         this.y = y;
     }
+}
+
+class PointFactory {
 
     public static Point newCartesianPoint(double x, double y) {
         return new Point(x, y);
