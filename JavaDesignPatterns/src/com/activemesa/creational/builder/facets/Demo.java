@@ -32,6 +32,21 @@ class PersonAddressBuilder extends PersonBuilder {
     public PersonAddressBuilder(Person person) {
         this.person = person;
     }
+
+    public PersonAddressBuilder at(String address) {
+        this.person.streetAddress = address;
+        return this;
+    }
+
+    public PersonAddressBuilder withPostCode(String postCode) {
+        this.person.postcode = postCode;
+        return this;
+    }
+
+    public PersonAddressBuilder in(String city) {
+        this.person.city = city;
+        return this;
+    }
 }
 
 public class Demo {
