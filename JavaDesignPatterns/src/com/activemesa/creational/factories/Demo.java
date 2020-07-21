@@ -7,6 +7,9 @@ class Point {
         this.x = x;
         this.y = y;
     }
+
+    public Point(double rho, double theta) {
+    }
 }
 
 public class Demo {
