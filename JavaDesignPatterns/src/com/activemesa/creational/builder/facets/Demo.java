@@ -53,5 +53,27 @@ class PersonAddressBuilder extends PersonBuilder {
     }
 }
 
+class PersonJobBuilder extends PersonBuilder {
+
+    public PersonJobBuilder(Person person) {
+        this.person = person;
+    }
+
+    public PersonJobBuilder company(String company) {
+        this.person.companyName = company;
+        return this;
+    }
+
+    public PersonJobBuilder asA(String position) {
+        this.person.position = position;
+        return this;
+    }
+
+    public PersonJobBuilder earning(int annualIncome) {
+        this.person.annualIncome = annualIncome;
+        return this;
+    }
+}
+
 public class Demo {
 }
