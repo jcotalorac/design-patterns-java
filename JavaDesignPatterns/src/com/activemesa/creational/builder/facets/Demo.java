@@ -27,5 +27,12 @@ class PersonBuilder {
     }
 }
 
+class PersonAddressBuilder extends PersonBuilder {
+
+    public PersonAddressBuilder(Person person) {
+        this.person = person;
+    }
+}
+
 public class Demo {
 }
