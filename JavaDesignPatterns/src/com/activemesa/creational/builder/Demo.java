@@ -90,7 +90,8 @@ public class Demo {
         System.out.println(builder);
 
         EmployeeBuilder pb = new EmployeeBuilder();
-        Person jc = pb.worksAt("CEO").withName("JC").build();
+        Person jc = pb.worksAt("CEO").withName("JC").worksAt("Coach").build();
+        System.out.println(jc);
     }
 }
 
@@ -107,12 +108,12 @@ class Person {
     }
 }
 
-class PersonBuilder {
+class PersonBuilder<T extends PersonBuilder> {
     protected Person person = new Person();
 
-    public PersonBuilder withName(String name) {
+    public T withName(String name) {
         person.name = name;
-        return this;
+        return (T) this;
     }
 
     public Person build() {
@@ -120,7 +121,7 @@ class PersonBuilder {
     }
 }
 
-class EmployeeBuilder extends PersonBuilder {
+class EmployeeBuilder extends PersonBuilder<EmployeeBuilder> {
 
     public EmployeeBuilder worksAt(String position) {
         person.position = position;
