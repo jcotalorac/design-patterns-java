@@ -113,6 +113,10 @@ class PersonBuilder<T extends PersonBuilder> {
 
     public T withName(String name) {
         person.name = name;
+        return self();
+    }
+
+    protected T self() {
         return (T) this;
     }
 
@@ -125,6 +129,11 @@ class EmployeeBuilder extends PersonBuilder<EmployeeBuilder> {
 
     public EmployeeBuilder worksAt(String position) {
         person.position = position;
+        return self();
+    }
+
+    @Override
+    protected EmployeeBuilder self() {
         return this;
     }
 }
