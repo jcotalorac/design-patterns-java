@@ -89,8 +89,8 @@ public class Demo {
                 .addChild("li", "world");
         System.out.println(builder);
 
-        PersonBuilder pb = new PersonBuilder();
-        Person jc = pb.withName("JC").build();
+        EmployeeBuilder pb = new EmployeeBuilder();
+        Person jc = pb.worksAt("CEO").withName("JC").build();
     }
 }
 
@@ -117,5 +117,13 @@ class PersonBuilder {
 
     public Person build() {
         return person;
+    }
+}
+
+class EmployeeBuilder extends PersonBuilder {
+
+    public EmployeeBuilder worksAt(String position) {
+        person.position = position;
+        return this;
     }
 }
