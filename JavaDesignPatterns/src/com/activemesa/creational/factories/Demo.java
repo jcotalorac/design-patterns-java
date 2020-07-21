@@ -39,6 +39,28 @@ class Coffee implements HotDrink {
     }
 }
 
+interface HotDrinkFactory {
+    HotDrink prepare(int amount);
+}
+
+class TeaFactory implements HotDrinkFactory {
+    @Override
+    public HotDrink prepare(int amount) {
+        System.out.println("Put in tea bag, boil water, pour " +
+                amount + "ml, add lemon, enjoy!");
+        return new Tea();
+    }
+}
+
+class CoffeFactory implements HotDrinkFactory {
+    @Override
+    public HotDrink prepare(int amount) {
+        System.out.println("Grind some beans, boil water, pour" +
+                amount + "ml, add cream and sugar");
+        return new Coffee();
+    }
+}
+
 public class Demo {
     public static void main(String[] args) {
         Point point = Point.PointFactory.newCartesianPoint(2, 3);
