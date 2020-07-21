@@ -80,4 +80,12 @@ class PersonJobBuilder extends PersonBuilder {
 }
 
 public class Demo {
+    public static void main(String[] args) {
+        PersonBuilder pb = new PersonBuilder();
+        Person person = pb
+                .lives()
+                    .at("Adress")
+                    .in("London")
+                    .withPostCode("Postcode").build();
+    }
 }
