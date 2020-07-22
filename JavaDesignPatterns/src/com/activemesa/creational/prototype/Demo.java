@@ -39,4 +39,9 @@ class Person {
 }
 
 public class Demo {
+    public static void main(String[] args) {
+        Person john = new Person(new String[]{"John", "Smith"}, new Address(
+                "London Road", 123
+        ));
+    }
 }
