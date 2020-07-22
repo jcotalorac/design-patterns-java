@@ -20,8 +20,8 @@ class Address implements Cloneable {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public Object clone() throws CloneNotSupportedException {
+        return new Address(streetName, houseNumber);
     }
 }
 
