@@ -9,6 +9,10 @@ class Address {
         this.country = country;
     }
 
+    public Address(Address other) {
+        this(other.streetAddress, other.city, other.country);
+    }
+
     @Override
     public String toString() {
         return "Address{" +
