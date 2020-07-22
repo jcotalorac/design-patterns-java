@@ -1,5 +1,13 @@
 package com.activemesa.creational.factories;
 
+import javafx.util.Pair;
+import org.reflections.Reflections;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 class Point {
     private double x, y;
 
@@ -58,6 +66,21 @@ class CoffeFactory implements HotDrinkFactory {
         System.out.println("Grind some beans, boil water, pour" +
                 amount + "ml, add cream and sugar");
         return new Coffee();
+    }
+}
+
+class HotDrinksMachine {
+    private List<Pair<String, HotDrinkFactory>> namedFactories = new ArrayList<>();
+
+    public HotDrinksMachine() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Set<Class<? extends HotDrinkFactory>> types = new Reflections("")
+                .getSubTypesOf(HotDrinkFactory.class);
+        for (Class<? extends HotDrinkFactory> type:
+             types) {
+            namedFactories.add(new Pair<>(type.getSimpleName()
+                    .replace("Factory", ""),
+                    type.getDeclaredConstructor().newInstance()));
+        }
     }
 }
 
