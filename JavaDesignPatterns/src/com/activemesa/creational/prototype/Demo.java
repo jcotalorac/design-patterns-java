@@ -43,18 +43,18 @@ class Person implements Cloneable {
     }
 
     @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+    public Object clone() throws CloneNotSupportedException {
+        return new Person(names, address);
     }
 }
 
 public class Demo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         Person john = new Person(new String[]{"John", "Smith"}, new Address(
                 "London Road", 123
         ));
 
-        Person jane = john;
+        Person jane = (Person) john.clone();
         jane.names[0] = "Jane";
         jane.address.houseNumber = 124;
 
