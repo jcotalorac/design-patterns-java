@@ -2,7 +2,7 @@ package com.activemesa.creational.prototype;
 
 import java.util.Arrays;
 
-class Address {
+class Address implements Cloneable {
     public String streetName;
     public int houseNumber;
 
@@ -17,6 +17,11 @@ class Address {
                 "streetName='" + streetName + '\'' +
                 ", houseNumber=" + houseNumber +
                 '}';
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
 
