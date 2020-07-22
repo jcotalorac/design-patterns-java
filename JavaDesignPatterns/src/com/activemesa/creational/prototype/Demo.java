@@ -1,5 +1,7 @@
 package com.activemesa.creational.prototype;
 
+import java.util.Arrays;
+
 class Address {
     public String streetName;
     public int houseNumber;
@@ -14,6 +16,24 @@ class Address {
         return "Address{" +
                 "streetName='" + streetName + '\'' +
                 ", houseNumber=" + houseNumber +
+                '}';
+    }
+}
+
+class Person {
+    public String [] names;
+    public Address address;
+
+    public Person(String[] names, Address address) {
+        this.names = names;
+        this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "names=" + Arrays.toString(names) +
+                ", address=" + address +
                 '}';
     }
 }
