@@ -25,7 +25,7 @@ class Address implements Cloneable {
     }
 }
 
-class Person {
+class Person implements Cloneable {
     public String [] names;
     public Address address;
 
@@ -40,6 +40,11 @@ class Person {
                 "names=" + Arrays.toString(names) +
                 ", address=" + address +
                 '}';
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
 
