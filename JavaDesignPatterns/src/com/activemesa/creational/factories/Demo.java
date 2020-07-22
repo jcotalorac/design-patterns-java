@@ -3,6 +3,9 @@ package com.activemesa.creational.factories;
 import javafx.util.Pair;
 import org.reflections.Reflections;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -82,10 +85,39 @@ class HotDrinksMachine {
                     type.getDeclaredConstructor().newInstance()));
         }
     }
+
+    public HotDrink makeDrink() throws IOException {
+        System.out.println("Available drinks: ");
+        for (int index = 0; index < namedFactories.size(); ++index) {
+            Pair<String, HotDrinkFactory> item = namedFactories.get(index);
+            System.out.println("" + index + ": " + item.getKey());
+        }
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        while (true) {
+            String s;
+            int i, amount;
+            if ((s = reader.readLine()) != null &&
+                    (i = Integer.parseInt(s)) >= 0 &&
+                    i < namedFactories.size()) {
+                System.out.println("Specify amount:");
+                s = reader.readLine();
+
+                if (s != null && (amount = Integer.parseInt(s)) > 0) {
+                    return namedFactories.get(i).getValue().prepare(amount);
+                }
+            }
+            System.out.println("Incorrect input, try again");
+        }
+    }
 }
 
 public class Demo {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, IOException {
         Point point = Point.PointFactory.newCartesianPoint(2, 3);
+        HotDrinksMachine machine = new HotDrinksMachine();
+        HotDrink drink = machine.makeDrink();
+        drink.consume();
+
     }
 }
