@@ -25,5 +25,7 @@ public class Demo {
         BasicSingleton singleton = BasicSingleton.getInstance();
         singleton.setValue(123);
         System.out.println(singleton.getValue());
+
+        // 1. Reflection problem
     }
 }
