@@ -1,6 +1,13 @@
 package com.activemesa.creational.singleton;
 
-class BasicSingleton {
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+class BasicSingleton implements Serializable {
     private static final BasicSingleton instance = new BasicSingleton();
 
     private int value = 0;
@@ -21,11 +28,36 @@ class BasicSingleton {
 }
 
 public class Demo {
-    public static void main(String[] args) {
+
+    static void saveToFile(BasicSingleton singleton, String fileName) throws IOException {
+        try (FileOutputStream fos = new FileOutputStream(fileName);
+            ObjectOutputStream ous = new ObjectOutputStream(fos)) {
+            ous.writeObject(singleton);
+        }
+    }
+
+    static BasicSingleton readFromFile(String fileName) throws IOException, ClassNotFoundException {
+        try (FileInputStream fis = new FileInputStream(fileName);
+             ObjectInputStream ois = new ObjectInputStream(fis)) {
+            return (BasicSingleton) ois.readObject();
+        }
+    }
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         BasicSingleton singleton = BasicSingleton.getInstance();
         singleton.setValue(123);
-        System.out.println(singleton.getValue());
 
         // 1. Reflection problem
+
+        String fileName = "singleton.bin";
+        saveToFile(singleton, fileName);
+
+        singleton.setValue(456);
+
+        BasicSingleton singleton2 = readFromFile(fileName);
+
+        System.out.println(singleton.getValue());
+        System.out.println(singleton2.getValue());
+        System.out.println(singleton == singleton2);
     }
 }
