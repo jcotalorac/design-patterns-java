@@ -40,6 +40,14 @@ class StaticBlockSingleton {
         System.out.println("Singleton is initializing");
         File.createTempFile("", "");
     }
+
+    static {
+        try {
+            instance = new StaticBlockSingleton();
+        } catch (IOException ioe) {
+            System.err.println("Failed to create singleton");
+        }
+    }
 }
 
 public class Demo {
