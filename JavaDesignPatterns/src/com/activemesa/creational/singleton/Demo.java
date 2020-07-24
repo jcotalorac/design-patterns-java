@@ -1,5 +1,6 @@
 package com.activemesa.creational.singleton;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -28,6 +29,16 @@ class BasicSingleton implements Serializable {
 
     protected Object readResolve() {
         return instance;
+    }
+}
+
+class StaticBlockSingleton {
+
+    private static StaticBlockSingleton instance;
+
+    private StaticBlockSingleton() throws IOException {
+        System.out.println("Singleton is initializing");
+        File.createTempFile("", "");
     }
 }
 
