@@ -48,6 +48,10 @@ class StaticBlockSingleton {
             System.err.println("Failed to create singleton");
         }
     }
+
+    public static StaticBlockSingleton getInstance() {
+        return instance;
+    }
 }
 
 public class Demo {
