@@ -54,6 +54,14 @@ class StaticBlockSingleton {
     }
 }
 
+class LazySingleton {
+    private static LazySingleton instance;
+
+    private LazySingleton() {
+        System.out.println("Initializing a lazy singleton");
+    }
+}
+
 public class Demo {
 
     static void saveToFile(BasicSingleton singleton, String fileName) throws IOException {
