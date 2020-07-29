@@ -67,6 +67,17 @@ class LazySingleton {
         }
         return instance;
     }
+
+    public static LazySingleton getInstanceDoubleCheck() {
+        if (instance == null) {
+            synchronized (LazySingleton.class) {
+                if (instance == null) {
+                    instance = new LazySingleton();
+                }
+            }
+        }
+        return instance;
+    }
 }
 
 public class Demo {
