@@ -129,6 +129,20 @@ public class Demo {
         }
     }
 
+    static void saveToFileEnum(EnumBasedSingleton singleton, String fileName) throws IOException {
+        try (FileOutputStream fos = new FileOutputStream(fileName);
+             ObjectOutputStream ous = new ObjectOutputStream(fos)) {
+            ous.writeObject(singleton);
+        }
+    }
+
+    static EnumBasedSingleton readFromFileEnum(String fileName) throws IOException, ClassNotFoundException {
+        try (FileInputStream fis = new FileInputStream(fileName);
+             ObjectInputStream ois = new ObjectInputStream(fis)) {
+            return (EnumBasedSingleton) ois.readObject();
+        }
+    }
+
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         BasicSingleton singleton = BasicSingleton.getInstance();
         singleton.setValue(123);
@@ -145,5 +159,17 @@ public class Demo {
         System.out.println(singleton.getValue());
         System.out.println(singleton2.getValue());
         System.out.println(singleton == singleton2);
+
+        String fileEnumName = "myfile.bin";
+
+        EnumBasedSingleton enumBasedSingleton = EnumBasedSingleton.INSTANCE;
+        enumBasedSingleton.setValue(111);
+        saveToFileEnum(enumBasedSingleton, fileEnumName);
+
+
+
+        EnumBasedSingleton enumBasedSingleton2 = readFromFileEnum(fileEnumName);
+        System.out.println(enumBasedSingleton.getValue());
+        System.out.println(enumBasedSingleton2.getValue());
     }
 }
