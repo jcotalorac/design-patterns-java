@@ -162,14 +162,14 @@ public class Demo {
 
         String fileEnumName = "myfile.bin";
 
-        EnumBasedSingleton enumBasedSingleton = EnumBasedSingleton.INSTANCE;
+        /*EnumBasedSingleton enumBasedSingleton = EnumBasedSingleton.INSTANCE;
         enumBasedSingleton.setValue(111);
-        saveToFileEnum(enumBasedSingleton, fileEnumName);
+        saveToFileEnum(enumBasedSingleton, fileEnumName);*/
 
 
 
         EnumBasedSingleton enumBasedSingleton2 = readFromFileEnum(fileEnumName);
-        System.out.println(enumBasedSingleton.getValue());
+        //System.out.println(enumBasedSingleton.getValue());
         System.out.println(enumBasedSingleton2.getValue());
     }
 }
