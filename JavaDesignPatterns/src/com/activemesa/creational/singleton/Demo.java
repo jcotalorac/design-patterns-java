@@ -98,6 +98,10 @@ class InnerStaticSingleton {
 enum EnumBasedSingleton {
     INSTANCE;
 
+    EnumBasedSingleton() {
+      value = 42;
+    }
+
     private int value;
 
     public int getValue() {
