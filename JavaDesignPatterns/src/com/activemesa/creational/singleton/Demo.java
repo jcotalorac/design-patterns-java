@@ -115,15 +115,15 @@ enum EnumBasedSingleton {
 
 class ChiefExecutiveOfficer {
 
-    private String name;
-    private int age;
+    private static String name;
+    private static int age;
 
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        ChiefExecutiveOfficer.name = name;
     }
 
     public int getAge() {
@@ -131,7 +131,7 @@ class ChiefExecutiveOfficer {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        ChiefExecutiveOfficer.age = age;
     }
 
     @Override
@@ -201,5 +201,12 @@ public class Demo {
         EnumBasedSingleton enumBasedSingleton2 = readFromFileEnum(fileEnumName);
         //System.out.println(enumBasedSingleton.getValue());
         System.out.println(enumBasedSingleton2.getValue());
+
+        ChiefExecutiveOfficer ceo = new ChiefExecutiveOfficer();
+        ceo.setName("Adam Smith");
+        ceo.setAge(55);
+
+        ChiefExecutiveOfficer ceo2 = new ChiefExecutiveOfficer();
+        System.out.println(ceo2);
     }
 }
