@@ -95,6 +95,10 @@ class InnerStaticSingleton {
     }
 }
 
+enum EnumBasedSingleton {
+    INSTANCE;
+}
+
 public class Demo {
 
     static void saveToFile(BasicSingleton singleton, String fileName) throws IOException {
