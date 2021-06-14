@@ -236,5 +236,9 @@ public class Demo {
 
         ChiefExecutiveOfficer ceo2 = new ChiefExecutiveOfficer();
         System.out.println(ceo2);
+
+        Printer main = Printer.get(Subsystem.PRIMARY);
+        Printer aux = Printer.get(Subsystem.AUXILIARY);
+        Printer aux2 = Printer.get(Subsystem.AUXILIARY);
     }
 }
