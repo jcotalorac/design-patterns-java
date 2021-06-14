@@ -143,6 +143,12 @@ class ChiefExecutiveOfficer {
     }
 }
 
+enum Subsystem {
+    PRIMARY,
+    AUXILIARY,
+    FALLBACK
+}
+
 public class Demo {
 
     static void saveToFile(BasicSingleton singleton, String fileName) throws IOException {
