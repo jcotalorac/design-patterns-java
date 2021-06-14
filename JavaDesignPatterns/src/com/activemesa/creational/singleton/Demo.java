@@ -1,5 +1,7 @@
 package com.activemesa.creational.singleton;
 
+import com.google.common.collect.Iterables;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -195,6 +197,8 @@ class SingletonDatabase {
             Path fullPath = Paths.get(file.getPath(), "capitals.txt");
 
             List<String> lines = Files.readAllLines(fullPath);
+
+            Iterables.partition(lines, 2);
         } catch (Exception e) {
             e.printStackTrace();
         }
