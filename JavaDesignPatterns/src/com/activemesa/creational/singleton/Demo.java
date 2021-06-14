@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.Hashtable;
 
 class BasicSingleton implements Serializable {
     private static final BasicSingleton instance = new BasicSingleton();
@@ -168,6 +170,21 @@ class Printer {
             instances.put(ss, instance);
             return instance;
         }
+    }
+}
+
+class SingletonDatabase {
+
+    private Dictionary<String, Integer> capitals = new Hashtable<>();
+    private static int instanceCount = 0;
+
+    public static int getCount() {
+        return instanceCount;
+    }
+
+    private SingletonDatabase() {
+        instanceCount++;
+        System.out.println("Initializing database");
     }
 }
 
