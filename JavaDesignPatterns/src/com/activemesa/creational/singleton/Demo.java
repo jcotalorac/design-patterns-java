@@ -198,7 +198,8 @@ class SingletonDatabase {
 
             List<String> lines = Files.readAllLines(fullPath);
 
-            Iterables.partition(lines, 2);
+            Iterables.partition(lines, 2)
+                    .forEach(keyValue -> capitals.put(keyValue.get(0).trim(), Integer.parseInt(keyValue.get(1))));
         } catch (Exception e) {
             e.printStackTrace();
         }
