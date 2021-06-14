@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.HashMap;
 
 class BasicSingleton implements Serializable {
     private static final BasicSingleton instance = new BasicSingleton();
@@ -147,6 +148,10 @@ enum Subsystem {
     PRIMARY,
     AUXILIARY,
     FALLBACK
+}
+
+class Printer {
+    private static HashMap<Subsystem, Printer> instances = new HashMap<>();
 }
 
 public class Demo {
