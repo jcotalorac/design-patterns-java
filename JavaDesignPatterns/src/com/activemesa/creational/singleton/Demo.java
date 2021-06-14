@@ -210,6 +210,10 @@ class SingletonDatabase {
     public static SingletonDatabase getInstance() {
         return INSTANCE;
     }
+
+    public int getPopulation(String name) {
+        return capitals.get(name);
+    }
 }
 
 public class Demo {
