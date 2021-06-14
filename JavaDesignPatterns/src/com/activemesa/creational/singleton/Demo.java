@@ -152,6 +152,16 @@ enum Subsystem {
 
 class Printer {
     private static HashMap<Subsystem, Printer> instances = new HashMap<>();
+
+    public static Printer get(Subsystem ss) {
+        if (instances.containsKey(ss)) {
+            return instances.get(ss);
+        } else {
+            Printer instance = new Printer();
+            instances.put(ss, instance);
+            return instance;
+        }
+    }
 }
 
 public class Demo {
