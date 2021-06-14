@@ -216,6 +216,15 @@ class SingletonDatabase {
     }
 }
 
+class SingletonRecordFinder {
+
+    public int getTotalPopulation(List<String> names) {
+        int result = names.stream().mapToInt(name -> SingletonDatabase.getInstance().getPopulation(name)).sum();
+
+        return result;
+    }
+}
+
 public class Demo {
 
     static void saveToFile(BasicSingleton singleton, String fileName) throws IOException {
