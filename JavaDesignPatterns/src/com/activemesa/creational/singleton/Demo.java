@@ -7,9 +7,13 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.List;
 
 class BasicSingleton implements Serializable {
     private static final BasicSingleton instance = new BasicSingleton();
@@ -185,6 +189,15 @@ class SingletonDatabase {
     private SingletonDatabase() {
         instanceCount++;
         System.out.println("Initializing database");
+
+        try {
+            File file = new File(SingletonDatabase.class.getProtectionDomain().getCodeSource().getLocation().getPath());
+            Path fullPath = Paths.get(file.getPath(), "capitals.txt");
+
+            List<String> lines = Files.readAllLines(fullPath);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
