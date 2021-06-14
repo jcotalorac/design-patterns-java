@@ -204,6 +204,12 @@ class SingletonDatabase {
             e.printStackTrace();
         }
     }
+
+    private static final SingletonDatabase INSTANCE = new SingletonDatabase();
+
+    public static SingletonDatabase getInstance() {
+        return INSTANCE;
+    }
 }
 
 public class Demo {
