@@ -233,6 +233,15 @@ class SingletonRecordFinder {
     }
 }
 
+class ConfigurableRecordFinder {
+
+    private Database database;
+
+    public ConfigurableRecordFinder(Database database) {
+        this.database = database;
+    }
+}
+
 class Tests {
 
     @Test
