@@ -1,6 +1,9 @@
 package com.activemesa.creational.singleton;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.google.common.collect.Iterables;
+import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -222,6 +225,20 @@ class SingletonRecordFinder {
         int result = names.stream().mapToInt(name -> SingletonDatabase.getInstance().getPopulation(name)).sum();
 
         return result;
+    }
+}
+
+class Tests {
+
+    @Test
+    public void singletonTotalPopulationTest() {
+        SingletonRecordFinder rf = new SingletonRecordFinder();
+
+        List<String> names = List.of("Seoul", "Mexico City");
+
+        int totalPopulation = rf.getTotalPopulation(names);
+
+        assertEquals(17500000 + 17400000, totalPopulation);
     }
 }
 
