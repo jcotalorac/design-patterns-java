@@ -182,7 +182,12 @@ class Printer {
     }
 }
 
-class SingletonDatabase {
+interface Database {
+
+    int getPopulation(String name);
+}
+
+class SingletonDatabase implements Database {
 
     private Dictionary<String, Integer> capitals = new Hashtable<>();
     private static int instanceCount = 0;
