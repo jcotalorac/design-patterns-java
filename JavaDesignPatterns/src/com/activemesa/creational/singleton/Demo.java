@@ -266,7 +266,7 @@ class DummyDatabase implements Database {
 
 class Tests {
 
-    @Test
+    @Test // It's not unit test. It's integration because total population method haves a concrete dependency of SingletonDatabase
     public void singletonTotalPopulationTest() {
         SingletonRecordFinder rf = new SingletonRecordFinder();
 
