@@ -240,6 +240,12 @@ class ConfigurableRecordFinder {
     public ConfigurableRecordFinder(Database database) {
         this.database = database;
     }
+
+    public int getTotalPopulation(List<String> names) {
+        int result = names.stream().mapToInt(name -> database.getPopulation(name)).sum();
+
+        return result;
+    }
 }
 
 class Tests {
