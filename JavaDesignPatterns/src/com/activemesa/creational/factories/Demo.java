@@ -1,6 +1,6 @@
 package com.activemesa.creational.factories;
 
-import javafx.util.Pair;
+import org.javatuples.Pair;
 import org.reflections.Reflections;
 
 import java.io.BufferedReader;
@@ -66,7 +66,7 @@ class TeaFactory implements HotDrinkFactory {
 class CoffeFactory implements HotDrinkFactory {
     @Override
     public HotDrink prepare(int amount) {
-        System.out.println("Grind some beans, boil water, pour" +
+        System.out.println("Grind some beans, boil water, pour " +
                 amount + "ml, add cream and sugar");
         return new Coffee();
     }
@@ -90,7 +90,7 @@ class HotDrinksMachine {
         System.out.println("Available drinks: ");
         for (int index = 0; index < namedFactories.size(); ++index) {
             Pair<String, HotDrinkFactory> item = namedFactories.get(index);
-            System.out.println("" + index + ": " + item.getKey());
+            System.out.println("" + index + ": " + item.getValue0());
         }
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -104,7 +104,7 @@ class HotDrinksMachine {
                 s = reader.readLine();
 
                 if (s != null && (amount = Integer.parseInt(s)) > 0) {
-                    return namedFactories.get(i).getValue().prepare(amount);
+                    return namedFactories.get(i).getValue1().prepare(amount);
                 }
             }
             System.out.println("Incorrect input, try again");
