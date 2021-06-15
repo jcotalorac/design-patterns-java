@@ -276,6 +276,19 @@ class Tests {
 
         assertEquals(17500000 + 17400000, totalPopulation);
     }
+
+    @Test
+    public void dependentPopulationTest() {
+        DummyDatabase db = new DummyDatabase();
+
+        ConfigurableRecordFinder rf = new ConfigurableRecordFinder(db);
+
+        List<String> names = List.of("alpha", "gamma");
+
+        int totalPopulation = rf.getTotalPopulation(names);
+
+        assertEquals(4, totalPopulation);
+    }
 }
 
 public class Demo {
