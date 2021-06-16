@@ -1,5 +1,7 @@
 package com.activemesa.structural.adapter;
 
+import java.util.ArrayList;
+
 class Point {
     public int x, y;
 
@@ -26,6 +28,8 @@ class Line {
         this.end = end;
     }
 }
+
+class VectorObject extends ArrayList<Line> {}
 
 public class Demo {
 }
