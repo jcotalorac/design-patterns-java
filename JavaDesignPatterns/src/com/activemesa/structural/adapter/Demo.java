@@ -1,6 +1,8 @@
 package com.activemesa.structural.adapter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 class Point {
     public int x, y;
@@ -42,4 +44,7 @@ class VectorRectangle extends VectorObject {
 }
 
 public class Demo {
+
+    private final static List<VectorObject> vectorObjects = new ArrayList<>(Arrays.asList(new VectorRectangle(1,1,10,10),
+            new VectorRectangle(3, 3, 6, 6)));
 }
