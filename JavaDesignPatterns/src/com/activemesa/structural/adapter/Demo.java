@@ -79,4 +79,6 @@ public class Demo {
     public static void drawPoint(Point P) {
         System.out.println(".");
     }
+
+    private static void draw() {}
 }
