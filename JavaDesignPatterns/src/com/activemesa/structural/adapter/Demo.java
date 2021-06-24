@@ -49,6 +49,6 @@ public class Demo {
             new VectorRectangle(3, 3, 6, 6)));
 
     public static void drawPoint(Point P) {
-
+        System.out.println(".");
     }
 }
