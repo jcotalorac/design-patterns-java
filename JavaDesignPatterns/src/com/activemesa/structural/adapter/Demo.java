@@ -80,5 +80,13 @@ public class Demo {
         System.out.println(".");
     }
 
-    private static void draw() {}
+    private static void draw() {
+        for (VectorObject vo : vectorObjects) {
+            for (Line line : vo) {
+                LineToPointAdapter lineToPointAdapter = new LineToPointAdapter(line);
+
+                lineToPointAdapter.forEach(Demo::drawPoint);
+            }
+        }
+    }
 }
