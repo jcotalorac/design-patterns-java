@@ -43,6 +43,12 @@ class VectorRectangle extends VectorObject {
     }
 }
 
+class LineToPointAdapter extends ArrayList<Point> {
+
+    public LineToPointAdapter(Line line) {
+    }
+}
+
 public class Demo {
 
     private final static List<VectorObject> vectorObjects = new ArrayList<>(Arrays.asList(new VectorRectangle(1,1,10,10),
