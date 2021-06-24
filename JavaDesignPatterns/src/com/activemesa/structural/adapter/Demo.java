@@ -58,6 +58,16 @@ class LineToPointAdapter extends ArrayList<Point> {
 
         int dx = right - left;
         int dy = bottom - top;
+
+        if (dx == 0) {
+            for (int y = top; y <= bottom; ++y) {
+                add(new Point(left, y));
+            }
+        } else if (dy == 0) {
+            for (int x = left; x <= right; ++x) {
+                add(new Point(x, top));
+            }
+        }
     }
 }
 
