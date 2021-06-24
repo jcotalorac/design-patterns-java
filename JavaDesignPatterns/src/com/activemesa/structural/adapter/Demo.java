@@ -45,7 +45,11 @@ class VectorRectangle extends VectorObject {
 
 class LineToPointAdapter extends ArrayList<Point> {
 
+    private static int count = 0;
+
     public LineToPointAdapter(Line line) {
+        System.out.println(String.format("%d: Generating points for line [%d,%d]-[%d,%d] (no caching)",
+                ++count, line.start.x, line.start.y, line.end.x, line.end.y));
     }
 }
 
