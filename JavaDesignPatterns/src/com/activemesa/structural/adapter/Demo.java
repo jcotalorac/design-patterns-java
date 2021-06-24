@@ -55,6 +55,9 @@ class LineToPointAdapter extends ArrayList<Point> {
         int right = Math.max(line.start.x, line.end.x);
         int top = Math.min(line.start.y, line.end.y);
         int bottom = Math.max(line.start.y, line.end.y);
+
+        int dx = right - left;
+        int dy = bottom - top;
     }
 }
 
