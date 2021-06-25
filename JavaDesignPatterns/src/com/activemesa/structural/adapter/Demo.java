@@ -3,6 +3,7 @@ package com.activemesa.structural.adapter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 class Point {
     public int x, y;
@@ -10,6 +11,20 @@ class Point {
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return x == point.x &&
+                y == point.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 
     @Override
@@ -28,6 +43,20 @@ class Line {
     public Line(Point start, Point end) {
         this.start = start;
         this.end = end;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Line line = (Line) o;
+        return start.equals(line.start) &&
+                end.equals(line.end);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(start, end);
     }
 }
 
