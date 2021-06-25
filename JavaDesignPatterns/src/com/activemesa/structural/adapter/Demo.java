@@ -3,9 +3,12 @@ package com.activemesa.structural.adapter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
 class Point {
     public int x, y;
@@ -69,15 +72,15 @@ class VectorRectangle extends VectorObject {
     public VectorRectangle(int x, int y, int width, int height) {
         add(new Line(new Point(x, y), new Point(x + width, y)));
         add(new Line(new Point(x + width, y), new Point(x + width, y + height)));
-        add(new Line(new Point(x + width, y + width), new Point(x, y + height)));
+        add(new Line(new Point(x + width, y + height), new Point(x, y + height)));
         add(new Line(new Point(x, y + height), new Point(x, y)));
     }
 }
 
-class LineToPointAdapter extends ArrayList<Point> {
+class LineToPointAdapter implements Iterable<Point> {
 
     private static int count = 0;
-    private Map<Integer, List<Point>> cache = new HashMap<>();
+    private static Map<Integer, List<Point>> cache = new HashMap<>();
     private int hash;
 
     public LineToPointAdapter(Line line) {
@@ -109,6 +112,22 @@ class LineToPointAdapter extends ArrayList<Point> {
         }
 
         cache.put(hash, points);
+    }
+
+
+    @Override
+    public Iterator<Point> iterator() {
+        return cache.get(hash).iterator();
+    }
+
+    @Override
+    public void forEach(Consumer<? super Point> action) {
+        cache.get(hash).forEach(action);
+    }
+
+    @Override
+    public Spliterator<Point> spliterator() {
+        return cache.get(hash).spliterator();
     }
 }
 
