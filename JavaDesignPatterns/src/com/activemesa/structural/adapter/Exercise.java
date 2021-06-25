@@ -23,11 +23,28 @@ interface Rectangle
 
 class SquareToRectangleAdapter implements Rectangle
 {
+    private Square sq;
     public SquareToRectangleAdapter(Square square)
     {
-        // todo
+        sq = square;
+    }
+
+    @Override
+    public int getWidth() {
+        return sq.side;
+    }
+
+    @Override
+    public int getHeight() {
+        return sq.side;
     }
 }
 
 public class Exercise {
+
+    public static void main(String[] args) {
+        SquareToRectangleAdapter squareToRectangleAdapter = new SquareToRectangleAdapter(new Square(3));
+
+        System.out.println(squareToRectangleAdapter.getArea());
+    }
 }
