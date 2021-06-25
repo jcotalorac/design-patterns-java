@@ -78,10 +78,17 @@ class LineToPointAdapter extends ArrayList<Point> {
 
     private static int count = 0;
     private Map<Integer, List<Point>> cache = new HashMap<>();
+    private int hash;
 
     public LineToPointAdapter(Line line) {
-        System.out.println(String.format("%d: Generating points for line [%d,%d]-[%d,%d] (no caching)",
+        hash = line.hashCode();
+
+        if (cache.get(hash) != null) return;
+
+        System.out.println(String.format("%d: Generating points for line [%d,%d]-[%d,%d] (with caching)",
                 ++count, line.start.x, line.start.y, line.end.x, line.end.y));
+
+        List<Point> points = new ArrayList<>();
 
         int left = Math.min(line.start.x, line.end.x);
         int right = Math.max(line.start.x, line.end.x);
@@ -93,13 +100,15 @@ class LineToPointAdapter extends ArrayList<Point> {
 
         if (dx == 0) {
             for (int y = top; y <= bottom; ++y) {
-                add(new Point(left, y));
+                points.add(new Point(left, y));
             }
         } else if (dy == 0) {
             for (int x = left; x <= right; ++x) {
-                add(new Point(x, top));
+                points.add(new Point(x, top));
             }
         }
+
+        cache.put(hash, points);
     }
 }
 
