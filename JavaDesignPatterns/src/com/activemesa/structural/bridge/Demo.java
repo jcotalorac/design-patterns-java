@@ -36,8 +36,15 @@ abstract class Shape {
 
 class Circle extends Shape {
 
+    public float radius;
+
     public Circle(Renderer renderer) {
         super(renderer);
+    }
+
+    public Circle(Renderer renderer, float radius) {
+        super(renderer);
+        this.radius = radius;
     }
 
     @Override
