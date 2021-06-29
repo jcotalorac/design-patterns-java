@@ -66,5 +66,7 @@ public class Demo {
 
         Circle circle = new Circle(vector, 5);
         circle.draw();
+        circle.resize(2);
+        circle.draw();
     }
 }
