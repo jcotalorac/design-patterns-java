@@ -34,5 +34,22 @@ abstract class Shape {
     public abstract void resize(float factor);
 }
 
+class Circle extends Shape {
+
+    public Circle(Renderer renderer) {
+        super(renderer);
+    }
+
+    @Override
+    public void draw() {
+
+    }
+
+    @Override
+    public void resize(float factor) {
+
+    }
+}
+
 public class Demo {
 }
