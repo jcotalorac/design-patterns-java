@@ -49,12 +49,12 @@ class Circle extends Shape {
 
     @Override
     public void draw() {
-
+        renderer.renderCircle(radius);
     }
 
     @Override
     public void resize(float factor) {
-
+        radius *= factor;
     }
 }
 
