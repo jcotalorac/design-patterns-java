@@ -1,7 +1,9 @@
 package com.activemesa.structural.bridge;
 
 import com.google.inject.AbstractModule;
+import com.google.inject.Guice;
 import com.google.inject.Inject;
+import com.google.inject.Injector;
 
 interface Renderer {
     void renderCircle(float radius);
@@ -73,12 +75,19 @@ class ShapeModule extends AbstractModule {
 public class Demo {
 
     public static void main(String[] args) {
-        RasterRenderer raster = new RasterRenderer();
+        /*RasterRenderer raster = new RasterRenderer();
         VectorRenderer vector = new VectorRenderer();
 
         Circle circle = new Circle(vector, 5);
         circle.draw();
         circle.resize(2);
-        circle.draw();
+        circle.draw();*/
+      Injector injector = Guice.createInjector(new ShapeModule());
+      Circle instance = injector.getInstance(Circle.class);
+
+      instance.radius = 3;
+      instance.draw();
+      instance.resize(2);
+      instance.draw();
     }
 }
