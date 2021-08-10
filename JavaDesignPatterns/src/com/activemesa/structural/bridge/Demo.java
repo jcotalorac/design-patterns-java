@@ -1,5 +1,6 @@
 package com.activemesa.structural.bridge;
 
+import com.google.inject.AbstractModule;
 import com.google.inject.Inject;
 
 interface Renderer {
@@ -58,6 +59,14 @@ class Circle extends Shape {
     @Override
     public void resize(float factor) {
         radius *= factor;
+    }
+}
+
+class ShapeModule extends AbstractModule {
+
+    @Override
+    protected void configure() {
+        bind(Renderer.class).to(VectorRenderer.class);
     }
 }
 
