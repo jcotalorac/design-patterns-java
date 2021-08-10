@@ -1,5 +1,7 @@
 package com.activemesa.structural.bridge;
 
+import com.google.inject.Inject;
+
 interface Renderer {
     void renderCircle(float radius);
 }
@@ -38,6 +40,7 @@ class Circle extends Shape {
 
     public float radius;
 
+    @Inject
     public Circle(Renderer renderer) {
         super(renderer);
     }
