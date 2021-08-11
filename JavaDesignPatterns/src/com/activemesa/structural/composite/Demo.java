@@ -1,6 +1,6 @@
 package com.activemesa.structural.composite;
 
-class GraphincObject {
+class GraphicObject {
 
   protected String name = "Group";
 
