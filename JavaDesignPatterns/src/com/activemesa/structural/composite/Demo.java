@@ -20,6 +20,13 @@ class GraphicObject {
   public void setName(String name) {
     this.name = name;
   }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    print(sb, 0);
+    return sb.toString();
+  }
 }
 
 public class Demo {
