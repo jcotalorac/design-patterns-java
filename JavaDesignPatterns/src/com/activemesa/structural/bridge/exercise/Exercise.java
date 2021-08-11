@@ -29,6 +29,12 @@ abstract class Shape
     this.renderer = renderer;
   }
 
+  @Override
+  public String toString()
+  {
+    return String.format("Drawing %s as %s", this.getName(), this.renderer.whatToRenderAs());
+  }
+
   public abstract String getName();
 }
 
@@ -67,7 +73,7 @@ class VectorSquare
   @Override
   public String toString()
   {
-    return String.format("Drawing %s as %s", shape.getName(), shape.renderer.whatToRenderAs());
+    return shape.toString();
   }
 }
 
@@ -78,7 +84,7 @@ class RasterSquare
   @Override
   public String toString()
   {
-    return String.format("Drawing %s as %s", shape.getName(), shape.renderer.whatToRenderAs());
+    return shape.toString();
   }
 }
 
