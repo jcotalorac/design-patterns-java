@@ -32,7 +32,7 @@ class GraphicObject {
   private void print(StringBuilder sb, int depth) {
     sb.append(String.join("", Collections.nCopies(depth, "*")))
     .append(depth > 0 ? " " : "")
-    .append((color == null || color.isEmpty()) ? "" : " ")
+    .append((color == null || color.isEmpty()) ? "" : color + " ")
     .append(getName())
     .append(System.lineSeparator());
 
