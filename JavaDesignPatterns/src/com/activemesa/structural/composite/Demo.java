@@ -1,6 +1,7 @@
 package com.activemesa.structural.composite;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 class GraphicObject {
@@ -26,6 +27,19 @@ class GraphicObject {
     StringBuilder sb = new StringBuilder();
     print(sb, 0);
     return sb.toString();
+  }
+
+  private void print(StringBuilder sb, int depth) {
+    sb.append(String.join("", Collections.nCopies(depth, "*")))
+    .append(depth > 0 ? " " : "")
+    .append((color == null || color.isEmpty()) ? "" : " ")
+    .append(getName())
+    .append(System.lineSeparator());
+
+    for (GraphicObject child :
+        children) {
+      child.print(sb, depth + 1);
+    }
   }
 }
 
