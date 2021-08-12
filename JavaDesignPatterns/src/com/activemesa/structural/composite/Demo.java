@@ -64,6 +64,10 @@ class Neuron {
   public List<Neuron> in, out;
 }
 
+class NeuronLayer extends ArrayList<Neuron> {
+
+}
+
 public class Demo {
 
   public static void main(String[] args) {
