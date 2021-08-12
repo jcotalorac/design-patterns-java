@@ -89,5 +89,15 @@ public class Demo {
     drawing.children.add(group);
 
     System.out.println(drawing);
+
+
+    Neuron neuron = new Neuron();
+    Neuron neuron2 = new Neuron();
+
+    NeuronLayer layer = new NeuronLayer();
+    NeuronLayer layer2 = new NeuronLayer();
+
+    neuron.connectTo(neuron2);
+
   }
 }
