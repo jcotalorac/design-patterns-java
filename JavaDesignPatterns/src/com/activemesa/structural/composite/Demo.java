@@ -2,7 +2,10 @@ package com.activemesa.structural.composite;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
 class GraphicObject {
 
@@ -59,17 +62,36 @@ class Square extends GraphicObject {
   }
 }
 
-class Neuron {
+interface SomeNeurons extends Iterable<Neuron> {
+
+}
+
+class Neuron implements SomeNeurons {
 
   public List<Neuron> in, out;
 
-  public void connectTo(Neuron other) {
+  /*public void connectTo(Neuron other) {
     out.add(other);
     other.in.add(this);
+  }*/
+
+  @Override
+  public Iterator<Neuron> iterator() {
+    return null;
+  }
+
+  @Override
+  public void forEach(Consumer<? super Neuron> action) {
+
+  }
+
+  @Override
+  public Spliterator<Neuron> spliterator() {
+    return null;
   }
 }
 
-class NeuronLayer extends ArrayList<Neuron> {
+class NeuronLayer extends ArrayList<Neuron> implements SomeNeurons {
 
 }
 
