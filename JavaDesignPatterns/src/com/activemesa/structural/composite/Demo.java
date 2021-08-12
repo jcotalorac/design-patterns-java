@@ -64,6 +64,14 @@ class Square extends GraphicObject {
 
 interface SomeNeurons extends Iterable<Neuron> {
 
+  default void connectTo(SomeNeurons other) {
+
+    if (this == other) {
+      return;
+    }
+
+
+  }
 }
 
 class Neuron implements SomeNeurons {
