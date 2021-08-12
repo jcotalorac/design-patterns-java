@@ -70,7 +70,12 @@ interface SomeNeurons extends Iterable<Neuron> {
       return;
     }
 
-
+    for (Neuron from : this) {
+      for (Neuron to : other) {
+        from.out.add(to);
+        to.in.add(from);
+      }
+    }
   }
 }
 
