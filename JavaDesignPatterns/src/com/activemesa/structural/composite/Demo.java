@@ -62,6 +62,11 @@ class Square extends GraphicObject {
 class Neuron {
 
   public List<Neuron> in, out;
+
+  public void connectTo(Neuron other) {
+    out.add(other);
+    other.in.add(this);
+  }
 }
 
 class NeuronLayer extends ArrayList<Neuron> {
