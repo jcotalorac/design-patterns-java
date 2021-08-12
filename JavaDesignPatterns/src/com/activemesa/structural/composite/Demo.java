@@ -59,6 +59,11 @@ class Square extends GraphicObject {
   }
 }
 
+class Neuron {
+
+  public List<Neuron> in, out;
+}
+
 public class Demo {
 
   public static void main(String[] args) {
