@@ -77,17 +77,17 @@ class Neuron implements SomeNeurons {
 
   @Override
   public Iterator<Neuron> iterator() {
-    return null;
+    return Collections.singleton(this).iterator();
   }
 
   @Override
   public void forEach(Consumer<? super Neuron> action) {
-
+    Collections.singleton(this).forEach(action);
   }
 
   @Override
   public Spliterator<Neuron> spliterator() {
-    return null;
+    return Collections.singleton(this).spliterator();
   }
 }
 
