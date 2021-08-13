@@ -391,7 +391,7 @@ class TransparentShape implements Shape {
 
   @Override
   public String info() {
-    return null;
+    return shape.info() + " has " + transparency + "% transparency";
   }
 }
 
