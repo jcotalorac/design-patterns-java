@@ -412,6 +412,22 @@ class ColoredShape<T extends Shape> implements Shape {
   }
 }
 
+class TransparentShape<T extends Shape> implements Shape {
+
+  private Shape shape;
+  private int transparency;
+
+  public TransparentShape(Supplier<? extends T> constructor, int transparency) {
+    this.shape = constructor.get();
+    this.transparency = transparency;
+  }
+
+  @Override
+  public String info() {
+    return null;
+  }
+}
+
 public class Demo {
 
   public static void main(String[] args) {
