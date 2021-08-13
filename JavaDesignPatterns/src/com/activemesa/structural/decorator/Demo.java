@@ -335,9 +335,13 @@ class Circle implements Shape {
     this.radius = radius;
   }
 
+  void resize(float factor) {
+    radius *= factor;
+  }
+
   @Override
   public String info() {
-    return null;
+    return "A circle of radius " + radius;
   }
 }
 
