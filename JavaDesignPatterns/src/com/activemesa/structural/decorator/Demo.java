@@ -363,6 +363,14 @@ class Square implements Shape {
   }
 }
 
+class ColoredShape implements Shape {
+
+  @Override
+  public String info() {
+    return null;
+  }
+}
+
 public class Demo {
 
   public static void main(String[] args) {
