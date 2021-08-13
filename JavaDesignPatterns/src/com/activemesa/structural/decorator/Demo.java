@@ -379,6 +379,22 @@ class ColoredShape implements Shape {
   }
 }
 
+class TransparentShape implements Shape {
+
+  private Shape shape;
+  private int transparency;
+
+  public TransparentShape(Shape shape, int transparency) {
+    this.shape = shape;
+    this.transparency = transparency;
+  }
+
+  @Override
+  public String info() {
+    return null;
+  }
+}
+
 public class Demo {
 
   public static void main(String[] args) {
