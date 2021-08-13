@@ -363,7 +363,7 @@ class Square implements Shape {
   }
 }
 
-class ColoredShape implements Shape {
+/*class ColoredShape implements Shape {
 
   private Shape shape;
   private String color;
@@ -393,7 +393,7 @@ class TransparentShape implements Shape {
   public String info() {
     return shape.info() + " has " + transparency + "% transparency";
   }
-}
+}*/
 
 public class Demo {
 
@@ -401,13 +401,13 @@ public class Demo {
     MagicString s = new MagicString("hello");
     System.out.println(s + " has " + s.getNumberOfVowels() + " vowels");
 
-    Circle circle = new Circle(10);
+    /*Circle circle = new Circle(10);
     System.out.println(circle.info());
 
     ColoredShape blueSquare = new ColoredShape(new Square(20), "blue");
     System.out.println(blueSquare.info());
 
     TransparentShape myCircle = new TransparentShape(new ColoredShape(new Circle(5), "green"), 50);
-    System.out.println(myCircle.info());
+    System.out.println(myCircle.info());*/
   }
 }
