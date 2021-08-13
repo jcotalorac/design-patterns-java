@@ -3,6 +3,7 @@ package com.activemesa.structural.decorator;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.Locale;
+import java.util.function.Supplier;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -394,6 +395,22 @@ class TransparentShape implements Shape {
     return shape.info() + " has " + transparency + "% transparency";
   }
 }*/
+
+class ColoredShape<T extends Shape> implements Shape {
+
+  private Shape shape;
+  private String color;
+
+  public ColoredShape(Supplier<? extends T> constructor, String color) {
+    this.shape = constructor.get();
+    this.color = color;
+  }
+
+  @Override
+  public String info() {
+    return null;
+  }
+}
 
 public class Demo {
 
