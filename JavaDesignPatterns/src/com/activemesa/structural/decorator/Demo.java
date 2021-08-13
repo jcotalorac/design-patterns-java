@@ -14,6 +14,13 @@ class MagicString {
     this.string = string;
   }
 
+  public long getNumberOfVowels() {
+    return string.chars()
+        .mapToObj(c -> (char)c)
+        .filter(c -> "aeiou".contains(c.toString()))
+        .count();
+  }
+
   public int length() {
     return string.length();
   }
