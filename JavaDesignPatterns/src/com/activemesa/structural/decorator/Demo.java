@@ -21,6 +21,11 @@ class MagicString {
         .count();
   }
 
+  @Override
+  public String toString() {
+    return string;
+  }
+
   public int length() {
     return string.length();
   }
