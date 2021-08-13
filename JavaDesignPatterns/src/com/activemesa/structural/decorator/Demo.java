@@ -320,6 +320,10 @@ class MagicString {
   }
 }
 
+interface Shape {
+  String info();
+}
+
 public class Demo {
 
   public static void main(String[] args) {
