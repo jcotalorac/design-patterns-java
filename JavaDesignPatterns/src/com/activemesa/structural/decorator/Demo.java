@@ -359,7 +359,7 @@ class Square implements Shape {
 
   @Override
   public String info() {
-    return null;
+    return "A square with side " + side;
   }
 }
 
@@ -400,5 +400,14 @@ public class Demo {
   public static void main(String[] args) {
     MagicString s = new MagicString("hello");
     System.out.println(s + " has " + s.getNumberOfVowels() + " vowels");
+
+    Circle circle = new Circle(10);
+    System.out.println(circle.info());
+
+    ColoredShape blueSquare = new ColoredShape(new Square(20), "blue");
+    System.out.println(blueSquare.info());
+
+    TransparentShape myCircle = new TransparentShape(new ColoredShape(new Circle(5), "green"), 50);
+    System.out.println(myCircle.info());
   }
 }
