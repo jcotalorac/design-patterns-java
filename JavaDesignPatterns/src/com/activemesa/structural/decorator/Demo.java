@@ -345,6 +345,24 @@ class Circle implements Shape {
   }
 }
 
+class Square implements Shape {
+
+  private float side;
+
+
+  public Square() {
+  }
+
+  public Square(float side) {
+    this.side = side;
+  }
+
+  @Override
+  public String info() {
+    return null;
+  }
+}
+
 public class Demo {
 
   public static void main(String[] args) {
