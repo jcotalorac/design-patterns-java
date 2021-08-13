@@ -324,6 +324,23 @@ interface Shape {
   String info();
 }
 
+class Circle implements Shape {
+
+  private float radius;
+
+  public Circle() {
+  }
+
+  public Circle(float radius) {
+    this.radius = radius;
+  }
+
+  @Override
+  public String info() {
+    return null;
+  }
+}
+
 public class Demo {
 
   public static void main(String[] args) {
