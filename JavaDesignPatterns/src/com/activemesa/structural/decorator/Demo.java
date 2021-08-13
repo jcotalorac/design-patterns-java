@@ -375,7 +375,7 @@ class ColoredShape implements Shape {
 
   @Override
   public String info() {
-    return null;
+    return shape.info() + " has the color " + color;
   }
 }
 
