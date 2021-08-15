@@ -435,6 +435,10 @@ class MyStringBuilder {
   public MyStringBuilder() {
     sb = new StringBuilder();
   }
+
+  public MyStringBuilder(String s) {
+    sb = new StringBuilder(s);
+  }
 }
 
 public class Demo {
