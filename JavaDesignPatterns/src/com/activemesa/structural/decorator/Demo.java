@@ -428,6 +428,15 @@ class TransparentShape<T extends Shape> implements Shape {
   }
 }
 
+class MyStringBuilder {
+
+  private StringBuilder sb;
+
+  public MyStringBuilder() {
+    sb = new StringBuilder();
+  }
+}
+
 public class Demo {
 
   public static void main(String[] args) {
