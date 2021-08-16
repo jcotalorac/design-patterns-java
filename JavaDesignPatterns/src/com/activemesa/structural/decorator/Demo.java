@@ -450,6 +450,10 @@ class MyStringBuilder {
     return this;
   }
 
+  public String toString() {
+    return sb.toString();
+  }
+
   public int compareTo(StringBuilder another) {
     return sb.compareTo(another);
   }
