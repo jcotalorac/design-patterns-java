@@ -445,6 +445,11 @@ class MyStringBuilder {
     return new MyStringBuilder(sb.toString().concat(str));
   }
 
+  public MyStringBuilder appendLine(String str) {
+    sb.append(str).append(System.lineSeparator());
+    return this;
+  }
+
   public int compareTo(StringBuilder another) {
     return sb.compareTo(another);
   }
