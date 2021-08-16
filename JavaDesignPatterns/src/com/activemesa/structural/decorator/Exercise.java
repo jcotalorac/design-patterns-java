@@ -22,20 +22,37 @@ class Lizard
 
 class Dragon
 {
+  private Bird bird;
+  private Lizard lizard;
+
   private int age;
+
+  public Dragon() {
+    this.bird = new Bird();
+    this.lizard = new Lizard();
+  }
+
   public void setAge(int age)
   {
-    // todo
+    bird.age = age;
+    lizard.age = age;
   }
   public String fly()
   {
-    // todo
+    return bird.fly();
   }
   public String crawl()
   {
-    // todo
+    return lizard.crawl();
   }
 }
 
 public class Exercise {
+
+  public static void main(String[] args) {
+    Dragon dragon = new Dragon();
+    dragon.setAge(10);
+    System.out.println(dragon.fly());
+    System.out.println(dragon.crawl());
+  }
 }
