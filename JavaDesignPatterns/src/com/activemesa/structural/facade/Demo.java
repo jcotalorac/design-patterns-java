@@ -52,6 +52,17 @@ class Console {
   public void addViewport(Viewport viewport) {
     viewports.add(viewport);
   }
+
+  public void render() {
+    for (int y = 0; y < height; ++y) {
+      for (int x = 0; x < width; ++x) {
+        for (Viewport vp : viewports) {
+          System.out.print(vp.charAt(x, y));
+        }
+        System.out.println();
+      }
+    }
+  }
 }
 
 public class Demo {
