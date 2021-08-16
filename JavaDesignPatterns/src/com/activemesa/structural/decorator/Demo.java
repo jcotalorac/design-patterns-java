@@ -445,12 +445,14 @@ class MyStringBuilder {
     return sb.compareTo(another);
   }
 
+  //decorator
   public StringBuilder append(Object obj) {
     return sb.append(obj);
   }
 
-  public StringBuilder append(String str) {
-    return sb.append(str);
+  public MyStringBuilder append(String str) {
+    sb.append(str);
+    return this;
   }
 
   public StringBuilder append(StringBuffer sb) {
