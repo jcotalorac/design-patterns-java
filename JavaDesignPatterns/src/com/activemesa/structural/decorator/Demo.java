@@ -441,6 +441,10 @@ class MyStringBuilder {
     sb = new StringBuilder(s);
   }
 
+  public MyStringBuilder concat(String str) {
+    return new MyStringBuilder(sb.toString().concat(str));
+  }
+
   public int compareTo(StringBuilder another) {
     return sb.compareTo(another);
   }
