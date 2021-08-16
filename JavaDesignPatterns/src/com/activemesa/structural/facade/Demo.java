@@ -1,5 +1,8 @@
 package com.activemesa.structural.facade;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Buffer {
 
   private char[] characters;
@@ -33,6 +36,17 @@ class Viewport {
 
   public char charAt(int x, int y) {
     return buffer.charAt(x + offsetX, y + offsetY);
+  }
+}
+
+class Console {
+
+  private List<Viewport> viewports = new ArrayList<>();
+  private int width, height;
+
+  public Console(int width, int height) {
+    this.width = width;
+    this.height = height;
   }
 }
 
