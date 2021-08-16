@@ -689,5 +689,9 @@ public class Demo {
 
     TransparentShape<ColoredShape<Circle>> myCircle = new TransparentShape<>(() -> new ColoredShape<>(() -> new Circle(5), "green"), 50);
     System.out.println(myCircle.info());
+
+    MyStringBuilder msb = new MyStringBuilder();
+    msb.append("hello").appendLine(" world");
+    System.out.println(msb.concat("and this too"));
   }
 }
