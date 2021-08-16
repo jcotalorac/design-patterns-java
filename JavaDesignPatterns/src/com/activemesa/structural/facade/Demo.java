@@ -48,6 +48,10 @@ class Console {
     this.width = width;
     this.height = height;
   }
+
+  public void addViewport(Viewport viewport) {
+    viewports.add(viewport);
+  }
 }
 
 public class Demo {
