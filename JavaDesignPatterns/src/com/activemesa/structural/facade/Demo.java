@@ -9,6 +9,10 @@ class Buffer {
     this.lineWidth = lineWidth;
     characters = new char[lineWidth * lineHeight];
   }
+
+  public char charAt(int x, int y) {
+    return characters[y * lineWidth + x];
+  }
 }
 
 public class Demo {
