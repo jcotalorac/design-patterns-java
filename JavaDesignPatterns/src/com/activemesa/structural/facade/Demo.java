@@ -30,6 +30,10 @@ class Viewport {
     this.offsetX = offsetX;
     this.offsetY = offsetY;
   }
+
+  public char charAt(int x, int y) {
+    return buffer.charAt(x + offsetX, y + offsetY);
+  }
 }
 
 public class Demo {
