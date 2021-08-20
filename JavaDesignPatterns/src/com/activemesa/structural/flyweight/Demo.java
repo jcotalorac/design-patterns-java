@@ -3,6 +3,7 @@ package com.activemesa.structural.flyweight;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 class User {
 
@@ -30,6 +31,10 @@ class User2 {
         return strings.size() - 1;
       }
     };
+
+    names = Stream.of(fullName.split(" "))
+        .mapToInt(getOrAdd::apply)
+        .toArray();
   }
 }
 
@@ -38,5 +43,8 @@ public class Demo {
   public static void main(String[] args) {
     User user = new User("John Smith");
     User user2 = new User("Jane Smith");
+
+    User2 user3 = new User2("Jane Smith");
+    User2 user4 = new User2("Jane Smith");
   }
 }
