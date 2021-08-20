@@ -38,6 +38,15 @@ class User2 {
   }
 }
 
+class FormattedText {
+
+  private String plainText;
+
+  public FormattedText(String plainText) {
+    this.plainText = plainText;
+  }
+}
+
 public class Demo {
 
   public static void main(String[] args) {
