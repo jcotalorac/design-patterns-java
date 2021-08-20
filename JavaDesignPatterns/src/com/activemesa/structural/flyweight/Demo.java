@@ -67,6 +67,15 @@ class FormattedText {
 
 class BetterFormattedText {
 
+  public class TextRange {
+    public int start, end;
+    public boolean capitalize, bold, italic;
+
+    public TextRange(int start, int end) {
+      this.start = start;
+      this.end = end;
+    }
+  }
 }
 
 public class Demo {
