@@ -53,6 +53,16 @@ class FormattedText {
       capitalize[i] = true;
     }
   }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+
+    for (int i = 0; i < plainText.length(); ++i) {
+      sb.append(capitalize[i] ? Character.toUpperCase(plainText.charAt(i)) : plainText.charAt(i));
+    }
+    return sb.toString();
+  }
 }
 
 public class Demo {
