@@ -2,6 +2,7 @@ package com.activemesa.structural.flyweight;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 class User {
 
@@ -16,6 +17,20 @@ class User2 {
 
   static List<String> strings = new ArrayList<>();
   private int[] names;
+
+  public User2(String fullName){
+
+    Function<String, Integer> getOrAdd = s -> {
+      int idx = strings.indexOf(s);
+
+      if (idx != -1) {
+        return idx;
+      } else {
+        strings.add(s);
+        return strings.size() - 1;
+      }
+    };
+  }
 }
 
 public class Demo {
