@@ -73,5 +73,9 @@ public class Demo {
 
     User2 user3 = new User2("Jane Smith");
     User2 user4 = new User2("Jane Smith");
+
+    FormattedText ft = new FormattedText("This is a brave new world");
+    ft.capitalize(10, 15);
+    System.out.println(ft);
   }
 }
