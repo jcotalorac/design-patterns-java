@@ -49,7 +49,9 @@ class FormattedText {
   }
 
   public void capitalize(int start, int end) {
-
+    for (int i = start; i <= end; i++) {
+      capitalize[i] = true;
+    }
   }
 }
 
