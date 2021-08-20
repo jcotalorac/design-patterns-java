@@ -45,6 +45,10 @@ class FormattedText {
   public FormattedText(String plainText) {
     this.plainText = plainText;
   }
+
+  public void capitalize(int start, int end) {
+
+  }
 }
 
 public class Demo {
