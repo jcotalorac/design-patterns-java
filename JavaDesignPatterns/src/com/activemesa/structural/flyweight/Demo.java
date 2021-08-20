@@ -41,9 +41,11 @@ class User2 {
 class FormattedText {
 
   private String plainText;
+  private boolean[] capitalize;
 
   public FormattedText(String plainText) {
     this.plainText = plainText;
+    this.capitalize = new boolean[plainText.length()];
   }
 
   public void capitalize(int start, int end) {
