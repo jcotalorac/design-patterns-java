@@ -1,5 +1,8 @@
 package com.activemesa.structural.flyweight;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class User {
 
   private String fullName;
@@ -7,6 +10,12 @@ class User {
   public User(String fullName) {
     this.fullName = fullName;
   }
+}
+
+class User2 {
+
+  static List<String> strings = new ArrayList<>();
+  private int[] names;
 }
 
 public class Demo {
