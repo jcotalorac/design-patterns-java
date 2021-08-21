@@ -75,6 +75,10 @@ class BetterFormattedText {
       this.start = start;
       this.end = end;
     }
+
+    public boolean covers(int position) {
+      return position >= start && position <= end;
+    }
   }
 }
 
