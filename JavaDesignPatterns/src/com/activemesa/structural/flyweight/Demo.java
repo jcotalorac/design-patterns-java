@@ -74,6 +74,13 @@ class BetterFormattedText {
     this.plainText = plainText;
   }
 
+  public TextRange getRange(int start, int end) {
+    TextRange range = new TextRange(start, end);
+    formatting.add(range);
+
+    return range;
+  }
+
   public class TextRange {
     public int start, end;
     public boolean capitalize, bold, italic;
