@@ -81,6 +81,24 @@ class BetterFormattedText {
     return range;
   }
 
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+
+    for (int i = 0; i < plainText.length(); ++i) {
+      char c = plainText.charAt(i);
+
+      for (TextRange range : formatting) {
+        if (range.covers(i) && range.capitalize) {
+          c = Character.toUpperCase(c);
+        }
+      }
+      sb.append(c);
+    }
+
+    return sb.toString();
+  }
+
   public class TextRange {
     public int start, end;
     public boolean capitalize, bold, italic;
