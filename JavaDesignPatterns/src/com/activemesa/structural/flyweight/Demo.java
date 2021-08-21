@@ -67,6 +67,13 @@ class FormattedText {
 
 class BetterFormattedText {
 
+  private String plainText;
+  private List<TextRange> formatting = new ArrayList<>();
+
+  public BetterFormattedText(String plainText) {
+    this.plainText = plainText;
+  }
+
   public class TextRange {
     public int start, end;
     public boolean capitalize, bold, italic;
