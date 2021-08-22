@@ -21,17 +21,33 @@ class Car implements Drivable {
 
 class Driver {
 
-  public int age;
+  protected int age;
 
   public Driver(int age) {
     this.age = age;
   }
 }
 
+class CarProxy extends Car {
+
+  public CarProxy(Driver driver) {
+    super(driver);
+  }
+
+  @Override
+  public void drive() {
+    if (driver.age <= 16) {
+      System.out.println("Driver too young!");
+    } else {
+      super.drive();
+    }
+  }
+}
+
 public class Demo {
 
   public static void main(String[] args) {
-    Car car = new Car(new Driver(12));
+    Car car = new CarProxy(new Driver(12));
     car.drive();
   }
 }
